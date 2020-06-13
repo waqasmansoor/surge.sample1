@@ -21,6 +21,12 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
+    - name: installing node
+      run: actions/setup-node@v2-beta
+      with:
+          node-version: 12
+      - name: installing surge
+      run: npm install --global surge
     # Runs a single command using the runners shell
     - name: deploying using surge
       run: surge ./ delmewaqas.surge.sh --token ${{ secrets.MY_TOKEN }}
